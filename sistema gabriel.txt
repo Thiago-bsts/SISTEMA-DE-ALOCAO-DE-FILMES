@@ -1,0 +1,43 @@
+void buscaLocacaoPorFilme (){
+	char oplocfilme;
+	char oplocfilme2;
+	
+	system("cls");
+	printf("Deseja buscar sua locação pelo código de cadastro do filme? ");
+	scanf("%c", &oplocfilme);
+	
+	if(oplocfilme == 's'){
+		printf("\nDigite o código de cadastro do filme: ");
+		scanf("%d", &oplocfilme2);
+	
+		if(oplocfilme2 == codePessoa){
+			printf("\nNome do filme: %s", cadfilme[buscafilme].nome_filme);
+			printf("\nCodigo: %d", cadfilme[codeFilme].codigo);
+			printf("\nPreço: R$ %.2f", cadfilme[buscafilme].preco);
+			printf("\nQuantidade: %d \n", cadfilme[buscafilme].quantidade);
+			
+		}
+	}
+}
+
+void buscaLocacaoPorPessoa (){
+	char oplocpessoa;
+	
+	printf("Deseja buscar sua locação pelo código de cadastro do cliente? ");
+	scanf("%c", &oplocpessoa);
+	
+	if(oplocpessoa == 's'){
+		printf("\nDigite o código de cadastro de cliente: ");
+		scanf("%d", &cadpessoa[buscapessoa].codigo);
+	
+		if(cadpessoa[buscapessoa].codigo){
+				printf("\nNome do cliente: %s", cadpessoa[buscapessoa].nome);
+				printf("\nIdade: %d", cadpessoa[buscapessoa].idade);
+				printf("\nCidade: %s", cadpessoa[buscapessoa].cidade);
+				printf("\nCPF: %d", cadpessoa[buscapessoa].cpf);
+				printf("\nEndereço: %s", cadpessoa[buscapessoa].endereco);
+				printf("\nCódigo: %d", cadpessoa[buscapessoa].codigo);
+		}
+	}
+
+}

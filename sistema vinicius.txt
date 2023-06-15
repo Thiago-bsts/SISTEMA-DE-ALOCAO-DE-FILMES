@@ -1,0 +1,145 @@
+void menuPrincipal() {
+	system("cls");
+	
+	printf("\t\t\t\t\t=========================================\n");
+	printf("\t\t\t\t\t==== SISTEMA DE CADASTRO DE PRODUTOS ====\n");
+	printf("\t\t\t\t\t=========================================\n\n\n");
+}
+
+void menuLocFilme() {
+	printf("==== CADASTRO DE FILMES ====\n");
+	
+	if(codeFilme == TAM_FILME) {
+		printf("O sistema está cheio.");
+	} else {
+		fflush(stdin);
+		printf("Nome do filme: ");
+		fgets(cadfilme[codeFilme].nome_filme,sizeof(cadfilme[codeFilme].nome_filme), stdin);
+		
+		fflush(stdin);
+		printf("Quantidade de filmes desejados: ");
+		scanf("%d", &cadfilme[codeFilme].quantidade);
+		
+		fflush(stdin);
+		printf("Preço: ");
+		scanf("%f", &cadfilme[codeFilme].preco);
+		
+		fflush(stdin);
+		printf("Codigo: ");
+		scanf("%d", &cadfilme[codeFilme].codigo);
+		
+		printf("\nProduto cadastrado com sucesso! Código: %d", codeFilme++);
+		menuPrincipal();
+		
+	}
+}
+
+void buscaLocFilme() {
+	int buscafilme = 0;
+	char op;
+	
+	do {
+		printf("\n\n===== BUSCAR =====\n\n");
+		
+		for(int i = 0;i < codeFilme; i++) {
+			printf("%d - %s\n", i, cadfilme[i].nome_filme);
+		}
+		
+		fflush(stdin);
+		printf("Deseja saber detalhes do cadastro do filme? (s/n): ");
+		scanf("%c", &op);
+		
+		if(toupper(op) == 'S') {
+			printf("\nInforme o código do produto: ");
+			scanf("%d", &buscafilme);
+			
+			printf("\n");
+			
+			if(buscafilme < codeFilme) {
+				printf("\nNome do filme: %s", cadfilme[buscafilme].nome_filme);
+				printf("\nCodigo: %d", cadfilme[buscafilme].codigo);
+				printf("\nPreço: R$ %.2f", cadfilme[buscafilme].preco);
+				printf("\nQuantidade: %d", cadfilme[buscafilme].quantidade);
+				
+			} else {
+				printf("Produto não encontrado!Tente novamente");
+				menuPrincipal();
+			}
+		}
+	} while(toupper(op) != 'N');
+}
+
+void menuCadPessoa(){
+	
+	menuPrincipal();
+	printf("==== CADASTRO DO CLIENTE ====\n");
+	
+	if(codePessoa == TAM_PESSOA) {
+		printf("O sistema está cheio.");
+	} else {
+		fflush(stdin);
+		printf("Digite seu nome: ");
+		scanf("%s", &cadpessoa[codePessoa].nome);
+		
+		fflush(stdin);
+		printf("Informe sua cidade: ");
+		scanf("%s", &cadpessoa[codePessoa].cidade);
+		
+		fflush(stdin);
+		printf("Informe sua idade: ");
+		scanf("%d", &cadpessoa[codePessoa].idade);
+		
+		fflush(stdin);
+		printf("Informe o seu CPF: ");
+		scanf("%d", &cadpessoa[codePessoa].cpf);
+		
+		fflush(stdin);
+		printf("Informe o seu Endereço: ");
+		scanf("%s", &cadpessoa[codePessoa].endereco);
+		
+		fflush(stdin);
+		printf("Codigo: ");
+		scanf("%d", &cadpessoa[codePessoa].codigo);
+		
+		printf("\nProduto cadastrado com sucesso! Código: %d", codePessoa++);
+		menuPrincipal();
+	}
+
+} 
+
+void buscaCadPessoa() {
+	int buscapessoa;
+	char opcaopessoa;
+
+		system("cls");
+		printf("\n\n===== BUSCAR =====\n\n");
+		
+		system("cls");
+		for(int i = 0;i < codePessoa; i++) {
+			printf("%d - %s\n", i, cadpessoa[i].nome);
+		}
+	
+		fflush(stdin);
+		printf("Deseja saber detalhes do seu cadastro como cliente? (s/n): ");
+		scanf("%c", &opcaopessoa);
+		
+		if(toupper(opcaopessoa) == 'S') {
+			printf("\nInforme o código do produto: ");
+			scanf("%d", &buscapessoa);
+			
+			printf("\n");
+			
+			if(buscapessoa < codePessoa) {
+				printf("\nNome do cliente: %s", cadpessoa[buscapessoa].nome);
+				printf("\nIdade: %d", cadpessoa[buscapessoa].idade);
+				printf("\nCidade: %s", cadpessoa[buscapessoa].cidade);
+				printf("\nCPF: %d", cadpessoa[buscapessoa].cpf);
+				printf("\nEndereço: %s", cadpessoa[buscapessoa].endereco);
+				printf("\nCódigo: %d", cadpessoa[buscapessoa].codigo);
+		
+			} else {
+				printf("Produto não encontrado!");
+				
+			}
+		}
+}
